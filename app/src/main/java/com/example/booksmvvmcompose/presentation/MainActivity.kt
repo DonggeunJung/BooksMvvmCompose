@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -43,56 +44,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BooksMvvmComposeTheme {
-                MainScreen(
-                    vm.books,
-                    modifier = Modifier.padding(1.dp).background(color = Color.White)
-                )
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    MainScreen(
+                        vm.books,
+                        modifier = Modifier.padding(1.dp).background(color = Color.White)
+                    )
+                }
             }
         }
 
         vm.reqBooks()
-    }
-}
-
-@Composable
-fun MainScreen(books: List<Book>, modifier: Modifier = Modifier) {
-    Column(modifier = Modifier.fillMaxSize()
-        .padding(top = 30.dp, bottom = 50.dp, start = 10.dp, end = 10.dp)) {
-        Header(modifier)
-        BookList(books, modifier)
-    }
-}
-
-@Composable
-fun Header(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
-        Text(text = stringResource(R.string.app_name),)
-    }
-}
-
-@Composable
-fun BookList(books: List<Book>, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(books) {
-            BookItem(it, modifier)
-        }
-    }
-}
-
-@Composable
-fun BookItem(book: Book, modifier: Modifier = Modifier) {
-    val imageSize = 80.dp; val fontSize = 12.sp
-    Row(modifier = modifier.fillMaxWidth().height(imageSize)) {
-        book.imageURL?.let {
-            Image(painter = rememberAsyncImagePainter(it),
-                contentDescription = null,
-                modifier = modifier.size(imageSize).padding(4.dp))
-        }
-        Column(modifier = modifier.fillMaxSize()) {
-            Text(text = book.title, color = Color.DarkGray, fontSize = fontSize)
-            book.author?.let {
-                Text(text = it, color = DarkBlue, fontSize = fontSize)
-            }
-        }
     }
 }

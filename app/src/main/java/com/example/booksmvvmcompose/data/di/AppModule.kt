@@ -1,6 +1,5 @@
 package com.example.booksmvvmcompose.data.di
 
-import android.content.Context
 import com.example.booksmvvmcompose.data.BookApi
 import dagger.Module
 import dagger.Provides
