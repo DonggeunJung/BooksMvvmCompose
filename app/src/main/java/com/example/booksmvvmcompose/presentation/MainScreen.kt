@@ -27,7 +27,7 @@ import com.example.booksmvvmcompose.ui.theme.DarkBlue
 @Composable
 fun MainScreen(books: List<Book>, modifier: Modifier = Modifier) {
     Column(modifier = Modifier.fillMaxSize()
-        .padding(top = 30.dp, bottom = 50.dp, start = 10.dp, end = 10.dp)) {
+        .padding(top = 30.dp, bottom = 50.dp, start = 0.dp, end = 0.dp)) {
         Header(modifier)
         BookList(books, modifier)
     }
@@ -36,7 +36,7 @@ fun MainScreen(books: List<Book>, modifier: Modifier = Modifier) {
 @Composable
 fun Header(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxWidth().height(50.dp), contentAlignment = Alignment.Center) {
-        Text(text = stringResource(R.string.app_name),)
+        Text(text = stringResource(R.string.app_name), color = Color.DarkGray)
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.booksmvvmcompose.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,15 +21,16 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var vm: BookViewModel
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             BooksMvvmComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) {
                     MainScreen(
                         vm.books,
-                        modifier = Modifier.padding(1.dp).background(color = Color.White)
+                        modifier = Modifier.padding(0.dp).background(color = Color.White)
                     )
                 }
             }
