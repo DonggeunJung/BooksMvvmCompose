@@ -1,10 +1,10 @@
 # BooksMvvmCompose
  [Android-Kotlin] Book list API, MVVM, Compose, Hilt example
 
-[Image1 : Book list parsing from Server JSON data]
+[Image1 : Parsed Book list from Server JSON data]
 
 <div>
-<img src="https://github.com/DonggeunJung/BooksMvvmCompose/blob/main/BooksMvvmCompose_Capture.png?raw=true width="260px" height="400px"></img>
+<img src="https://github.com/DonggeunJung/BooksMvvmCompose/blob/main/BooksMvvmCompose_Capture.png?raw=true width="300px" height="500px"></img>
 </div>
 
 
